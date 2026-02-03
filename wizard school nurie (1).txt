@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Hogwarts Highschool</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Style Wizard Theme -->
+  <style>
+    body {
+      scroll-behavior: smooth;
+      background-color: #f5efe6;
+      color: #3e2723;
+      font-family: 'Georgia', serif;
+    }
+
+    /* Navbar */
+    .wizard-nav {
+      background-color: #4e342e;
+    }
+
+    /* Hero */
+    .hero {
+      height: 100vh;
+      background: linear-gradient(
+        rgba(62, 39, 35, 0.85),
+        rgba(62, 39, 35, 0.85)
+      ),
+      url('https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d');
+      background-size: cover;
+      background-position: center;
+    }
+
+    section {
+      padding-top: 80px;
+    }
+
+    /* Card */
+    .card {
+      background-color: #efebe9;
+      border: none;
+      color: #3e2723;
+    }
+
+    /* Button */
+    .btn-wizard {
+      background-color: #6d4c41;
+      color: white;
+      border: none;
+    }
+
+    .btn-wizard:hover {
+      background-color: #5d4037;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #3e2723;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark wizard-nav fixed-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">Hogwarts Highschool</a>
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#home">Beranda</a></li>
+        <li class="nav-item"><a class="nav-link" href="#profil">Profil</a></li>
+        <li class="nav-item"><a class="nav-link" href="#program">Program</a></li>
+        <li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero / Landing -->
+<section id="home" class="hero d-flex align-items-center text-center text-white">
+  <div class="container">
+    <h1 class="display-4 fw-bold">Welcome to Hogwarts Highschool</h1>
+    <p class="lead">Where Knowledge Meets Magic</p>
+    <button class="btn btn-light btn-lg mt-3" onclick="daftar()">Enroll Now</button>
+  </div>
+</section>
+
+<!-- Profil -->
+<section id="profil" class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Profil Sekolah</h2>
+    <p class="text-center">
+      Hogwarts Highschool adalah sekolah berbasis pengetahuan dan karakter,
+      menggabungkan pendidikan modern dengan nilai-nilai kebijaksanaan klasik.
+    </p>
+  </div>
+</section>
+
+<!-- Program -->
+<section id="program" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-4">Program Unggulan</h2>
+    <div class="row" id="programList"></div>
+  </div>
+</section>
+
+<!-- Kontak -->
+<section id="kontak" class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Hubungi Kami</h2>
+    <form class="col-md-6 mx-auto" onsubmit="kirim(event)">
+      <input type="text" class="form-control mb-3" placeholder="Nama" required>
+      <input type="email" class="form-control mb-3" placeholder="Email" required>
+      <textarea class="form-control mb-3" rows="3" placeholder="Pesan"></textarea>
+      <button class="btn btn-wizard w-100">Kirim Pesan</button>
+    </form>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="text-center py-3">
+  <small>© 2026 Hogwarts Highschool</small>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- JavaScript -->
+<script>
+  function daftar() {
+    alert("✨ Enrollment Open! Prepare your wand and wisdom ✨");
+  }
+
+  const program = [
+    "Potion & Science Class",
+    "Defense Against Dark Knowledge",
+    "Magic Technology",
+    "Wizard Leadership Training"
+  ];
+
+  const programList = document.getElementById("programList");
+
+  program.forEach(item => {
+    programList.innerHTML += `
+      <div class="col-md-3 mb-3">
+        <div class="card shadow-sm text-center">
+          <div class="card-body">
+            <h5 class="card-title">${item}</h5>
+          </div>
+        </div>
+      </div>
+    `;
+  });
+
+  function kirim(e) {
+    e.preventDefault();
+    alert("🦉 Message sent via magical owl!");
+  }
+</script>
+
+</body>
+</html>
